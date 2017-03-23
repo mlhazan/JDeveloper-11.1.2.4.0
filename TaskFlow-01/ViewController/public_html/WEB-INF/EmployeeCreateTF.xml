@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="EmployeeCreateTF">
+    <default-activity>EmployeeCreateView</default-activity>
+    <return-value-definition id="__4">
+      <name>NewEmployeeName</name>
+      <value>#{pageFlowScope.NewEmployeeName}</value>
+      <class>java.lang.String</class>
+    </return-value-definition>
+    <managed-bean id="__5">
+      <managed-bean-name>EmployeeCreateViewBean</managed-bean-name>
+      <managed-bean-class>demo.view.bean.EmployeeCreateViewBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="EmployeeCreateView">
+      <page>/EmployeeCreateView.jsff</page>
+    </view>
+    <task-flow-return id="SaveTaskFlowReturn">
+      <outcome>
+        <name>toSuccess</name>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="CancelTaskflowReturn">
+      <outcome>
+        <name>toFailure</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__1">
+      <from-activity-id>EmployeeCreateView</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>toSave</from-outcome>
+        <to-activity-id>SaveTaskFlowReturn</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>toCancel</from-outcome>
+        <to-activity-id>CancelTaskflowReturn</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

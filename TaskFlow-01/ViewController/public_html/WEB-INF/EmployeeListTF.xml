@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="EmployeeListTF">
+    <default-activity>EmployeeListView</default-activity>
+    <view id="EmployeeListView">
+      <page>/EmployeeListView.jsff</page>
+    </view>
+    <task-flow-call id="EmployeeCreateTF">
+      <task-flow-reference>
+        <document>/WEB-INF/EmployeeCreateTF.xml</document>
+        <id>EmployeeCreateTF</id>
+      </task-flow-reference>
+      <return-value id="__8">
+        <name>NewEmployeeName</name>
+        <value>#{pageFlowScope.EmployeeName}</value>
+      </return-value>
+    </task-flow-call>
+    <view id="EmployeeSuccess">
+      <page>/EmployeeSuccess.jsff</page>
+    </view>
+    <view id="EmployeeFailure">
+      <page>/EmployeeFailure.jsff</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>EmployeeListView</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>toCreate</from-outcome>
+        <to-activity-id>EmployeeCreateTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>EmployeeCreateTF</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>toSuccess</from-outcome>
+        <to-activity-id>EmployeeSuccess</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>toFailure</from-outcome>
+        <to-activity-id>EmployeeFailure</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>toStart</from-outcome>
+        <to-activity-id>EmployeeListView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
