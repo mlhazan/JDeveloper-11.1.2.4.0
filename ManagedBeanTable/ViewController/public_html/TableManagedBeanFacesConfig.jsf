@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="TableManagedBeanFacesConfig.jsf" id="d1">
+        <af:form id="f1">
+            <af:panelStretchLayout id="psl1">
+                <f:facet name="center">
+                    <af:table var="row" rowBandingInterval="1" id="t1"
+                              value="#{TableManagedBeanFacesConfig.personList}"
+                              autoHeightRows="-1">
+                        <af:column headerText="Name" id="c1">
+                            <af:outputText value="#{row.name}" id="ot1"/>
+                        </af:column>
+                        <af:column sortable="false" headerText="Mobile No" id="c2">
+                            <af:outputText value="#{row.mobNo}" id="ot2"/>
+                        </af:column>
+                        <af:column sortable="false" headerText="Salary" id="c3">
+                            <af:outputText value="#{row.salary}" id="ot3"/>
+                        </af:column>
+                    </af:table>
+                    <!-- id="af_one_column_stretched"   -->
+                </f:facet>
+            </af:panelStretchLayout>
+        </af:form>
+      
+    </af:document>
+</f:view>
