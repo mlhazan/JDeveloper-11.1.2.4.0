@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <managed-bean id="__1">
+    <managed-bean-name>ProgTableBean</managed-bean-name>
+    <managed-bean-class>demo.view.ProgTableBean</managed-bean-class>
+    <managed-bean-scope>view</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1page.jsf-->
+  </managed-bean>
+</adfc-config>
