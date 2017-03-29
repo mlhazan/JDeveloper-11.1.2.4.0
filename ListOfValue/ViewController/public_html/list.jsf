@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="list.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelBox text="Department in #{bindings.CountryName}" id="pb1">
+                <f:facet name="toolbar">
+                    <af:panelGroupLayout layout="horizontal" id="pgl2">
+                        <f:facet name="separator">
+                            <af:spacer width="10" height="1" id="s2"/>
+                        </f:facet>
+                        <af:commandButton actionListener="#{bindings.First.execute}" text="First"
+                                          disabled="#{!bindings.First.enabled}" partialSubmit="true" id="cb5"/>
+                        <af:commandButton actionListener="#{bindings.Previous.execute}" text="Previous"
+                                          disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="cb6"/>
+                        <af:commandButton actionListener="#{bindings.Next.execute}" text="Next"
+                                          disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="cb7"/>
+                        <af:commandButton actionListener="#{bindings.Last.execute}" text="Last"
+                                          disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="cb8"/>
+                    </af:panelGroupLayout>
+                </f:facet>
+                <af:panelFormLayout id="pfl1">
+                    <af:inputText value="#{bindings.DepartmentId.inputValue}"
+                                  label="#{bindings.DepartmentId.hints.label}"
+                                  required="#{bindings.DepartmentId.hints.mandatory}"
+                                  columns="#{bindings.DepartmentId.hints.displayWidth}"
+                                  maximumLength="#{bindings.DepartmentId.hints.precision}"
+                                  shortDesc="#{bindings.DepartmentId.hints.tooltip}" id="it1">
+                        <f:validator binding="#{bindings.DepartmentId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentId.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.DepartmentName.inputValue}"
+                                  label="#{bindings.DepartmentName.hints.label}"
+                                  required="#{bindings.DepartmentName.hints.mandatory}"
+                                  columns="#{bindings.DepartmentName.hints.displayWidth}"
+                                  maximumLength="#{bindings.DepartmentName.hints.precision}"
+                                  shortDesc="#{bindings.DepartmentName.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.DepartmentName.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.ManagerId.inputValue}" label="#{bindings.ManagerId.hints.label}"
+                                  required="#{bindings.ManagerId.hints.mandatory}"
+                                  columns="#{bindings.ManagerId.hints.displayWidth}"
+                                  maximumLength="#{bindings.ManagerId.hints.precision}"
+                                  shortDesc="#{bindings.ManagerId.hints.tooltip}" id="it3">
+                        <f:validator binding="#{bindings.ManagerId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.ManagerId.format}"/>
+                    </af:inputText>
+                    <af:selectOneChoice value="#{bindings.LocationId.inputValue}" label="#{bindings.LocationId.label}"
+                                        required="#{bindings.LocationId.hints.mandatory}"
+                                        shortDesc="#{bindings.LocationId.hints.tooltip}" id="soc1">
+                        <f:selectItems value="#{bindings.LocationId.items}" id="si1"/>
+                    </af:selectOneChoice>
+                    <f:facet name="footer">
+                        <af:panelGroupLayout layout="horizontal" id="pgl1">
+                            <f:facet name="separator">
+                                <af:spacer width="10" height="1" id="s1"/>
+                            </f:facet>
+                            <af:commandButton actionListener="#{bindings.First.execute}" text="First"
+                                              disabled="#{!bindings.First.enabled}" partialSubmit="true" id="cb1"/>
+                            <af:commandButton actionListener="#{bindings.Previous.execute}" text="Previous"
+                                              disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="cb2"/>
+                            <af:commandButton actionListener="#{bindings.Next.execute}" text="Next"
+                                              disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="cb3"/>
+                            <af:commandButton actionListener="#{bindings.Last.execute}" text="Last"
+                                              disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="cb4"/>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                </af:panelFormLayout>
+            </af:panelBox>
+        </af:form>
+    </af:document>
+</f:view>

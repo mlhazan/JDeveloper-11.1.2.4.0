@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="11.1.2.64.36"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="CountriesView1"
+    ViewObjectName="demo.model.view.CountriesView"/>
+  <ViewUsage
+    Name="DepartmentsView1"
+    ViewObjectName="demo.model.view.DepartmentsView"/>
+  <ViewUsage
+    Name="LocationsView1"
+    ViewObjectName="demo.model.view.LocationsView"/>
+  <ViewUsage
+    Name="DepartmentsView2"
+    ViewObjectName="demo.model.view.DepartmentsView"/>
+  <ViewUsage
+    Name="LocationsView2"
+    ViewObjectName="demo.model.view.LocationsView"/>
+  <ViewLinkUsage
+    Name="DeptLocFkLink1"
+    ViewLinkObjectName="demo.model.view.DeptLocFkLink"
+    SrcViewUsageName="demo.model.service.AppModule.LocationsView1"
+    DstViewUsageName="demo.model.service.AppModule.DepartmentsView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="LocCIdFkLink1"
+    ViewLinkObjectName="demo.model.view.LocCIdFkLink"
+    SrcViewUsageName="demo.model.service.AppModule.CountriesView1"
+    DstViewUsageName="demo.model.service.AppModule.LocationsView2"
+    Reversed="false"/>
+</AppModule>

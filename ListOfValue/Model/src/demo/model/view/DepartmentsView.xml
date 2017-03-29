@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DepartmentsView"
+  Version="11.1.2.64.36"
+  SelectList="Departments.DEPARTMENT_ID, 
+       Departments.DEPARTMENT_NAME, 
+       Departments.MANAGER_ID, 
+       Departments.LOCATION_ID, 
+       Locations.COUNTRY_ID, 
+       Locations.LOCATION_ID AS LOCATION_ID1, 
+       Countries.COUNTRY_NAME, 
+       Countries.COUNTRY_ID AS COUNTRY_ID1"
+  FromList="DEPARTMENTS Departments, LOCATIONS Locations, COUNTRIES Countries"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  Where="(Departments.LOCATION_ID = Locations.LOCATION_ID) AND (Locations.COUNTRY_ID = Countries.COUNTRY_ID)">
+  <ViewAccessor
+    Name="LocationsView1"
+    ViewObjectName="demo.model.view.LocationsView">
+    <ViewCriteriaUsage
+      Name="LocationsViewCriteria"
+      FullName="demo.model.view.LocationsView.LocationsViewCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="CountryIdBind">
+        <TransientExpression><![CDATA[CountryId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_LocationId"
+    ListVOName="LocationsView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="LocationId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LocationId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="City"/>
+      <Item Value="LocationId"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="Departments"
+    Entity="demo.model.entity.Departments"/>
+  <EntityUsage
+    Name="Locations"
+    Entity="demo.model.entity.Locations"
+    Association="demo.model.entity.DeptLocFkAssoc"
+    AssociationEnd="demo.model.entity.DeptLocFkAssoc.Locations"
+    SourceUsage="demo.model.view.DepartmentsView.Departments"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="demo.model.entity.Departments.LocationId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="demo.model.entity.Locations.LocationId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="Countries"
+    Entity="demo.model.entity.Countries"
+    Association="demo.model.entity.LocCIdFkAssoc"
+    AssociationEnd="demo.model.entity.LocCIdFkAssoc.Countries"
+    SourceUsage="demo.model.view.DepartmentsView.Locations"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="demo.model.entity.Locations.CountryId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="demo.model.entity.Countries.CountryId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="DepartmentId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DepartmentId"
+    EntityUsage="Departments"
+    AliasName="DEPARTMENT_ID"/>
+  <ViewAttribute
+    Name="DepartmentName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DepartmentName"
+    EntityUsage="Departments"
+    AliasName="DEPARTMENT_NAME"/>
+  <ViewAttribute
+    Name="ManagerId"
+    PrecisionRule="true"
+    EntityAttrName="ManagerId"
+    EntityUsage="Departments"
+    AliasName="MANAGER_ID"/>
+  <ViewAttribute
+    Name="LocationId"
+    PrecisionRule="true"
+    EntityAttrName="LocationId"
+    EntityUsage="Departments"
+    AliasName="LOCATION_ID"
+    LOVName="LOV_LocationId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CountryId"
+    PrecisionRule="true"
+    EntityAttrName="CountryId"
+    EntityUsage="Locations"
+    AliasName="COUNTRY_ID"/>
+  <ViewAttribute
+    Name="LocationId1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LocationId"
+    EntityUsage="Locations"
+    AliasName="LOCATION_ID1"/>
+  <ViewAttribute
+    Name="CountryName"
+    PrecisionRule="true"
+    EntityAttrName="CountryName"
+    EntityUsage="Countries"
+    AliasName="COUNTRY_NAME"/>
+  <ViewAttribute
+    Name="CountryId1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CountryId"
+    EntityUsage="Countries"
+    AliasName="COUNTRY_ID1"/>
+</ViewObject>
