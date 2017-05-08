@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:decorativeBox id="db1" theme="dark" topHeight="0px">
+    <f:facet name="center">
+      <af:decorativeBox id="db2" theme="medium" topHeight="0px">
+        <f:facet name="center">
+          <af:panelHeader text="Manage Image Repository" id="ph1">
+            <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.ImageRepoBean.mainForm}" partialTriggers="if1">
+              <af:spacer width="10" height="10" id="s2"/>
+                <af:image source="/imageservlet?id=#{bindings.CorproId.inputValue}&amp;ovn=#{bindings.CorproId.inputValue}" id="i1"
+                        inlineStyle="width:130px; height:130px;"
+                        partialTriggers="cb7" shortDesc="No Image To Show"/>
+              <af:spacer width="2" height="2" id="s4"/>
+              <af:commandButton text="Change Image" id="changeImageButton">
+                <af:showPopupBehavior popupId="imageUploadPopup"
+                                      triggerType="action" align="afterEnd"
+                                      alignId="changeImageButton"/>
+              </af:commandButton>
+              <af:spacer width="10" height="10" id="s3"/>
+              <af:panelFormLayout id="pfl3" rendered="false">
+                <af:inputText value="#{bindings.CorproId.inputValue}" label="#{bindings.CorproId.hints.label}"
+                              required="#{bindings.CorproId.hints.mandatory}"
+                              columns="#{bindings.CorproId.hints.displayWidth}"
+                              maximumLength="#{bindings.CorproId.hints.precision}"
+                              shortDesc="#{bindings.CorproId.hints.tooltip}" id="it2">
+                  <f:validator binding="#{bindings.CorproId.validator}"/>
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.CorproId.format}"/>
+                </af:inputText>
+              </af:panelFormLayout>
+              <f:facet name="footer">
+                <af:panelGroupLayout id="pgl1" layout="vertical"
+                                     inlineStyle="border-color:Black; border-style:solid; border-width:thin;">
+                  <af:spacer width="2" height="2" id="spacer3"/>
+                  <!--<af:toolbar id="t1">
+                    <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                               disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                    <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                               disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b1"/>
+                  </af:toolbar>-->
+                  <af:spacer width="2" height="2" id="spacer1"/>
+                  <af:separator id="s5"/>
+                  <af:spacer width="2" height="2" id="spacer4"/>
+                  <af:toolbar id="t3">
+                    <af:commandButton actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                      disabled="#{!bindings.CreateInsert.enabled}" id="cb4"/>
+                    <af:commandButton actionListener="#{bindings.Execute.execute}" text="Execute"
+                                      disabled="#{!bindings.Execute.enabled}" id="cb7"/>
+                                      
+                                      
+                  
+                  </af:toolbar>
+                  <af:spacer width="2" height="2" id="spacer2"/>
+                </af:panelGroupLayout>
+              </f:facet>
+            </af:panelFormLayout>
+          </af:panelHeader>
+        </f:facet>
+        <f:facet name="top">
+          <af:popup id="imageUploadPopup" contentDelivery="lazyUncached"
+                    popupCanceledListener="#{backingBeanScope.ImageRepoBean.handleCancelPop}"
+                    popupFetchListener="#{backingBeanScope.ImageRepoBean.handleShowPop}">
+            <af:dialog id="d1" title="Change Image"
+                       dialogListener="#{backingBeanScope.ImageRepoBean.uploadImageToDB}">
+              <af:panelFormLayout id="pfl2">
+                <af:inputFile label="Image to Upload" id="if1"
+                              value="#{backingBeanScope.ImageRepoBean.imageFile}"
+                              valueChangeListener="#{backingBeanScope.ImageRepoBean.handleChangeFile}" autoSubmit="true"/>
+                <af:spacer width="2" height="2" id="spacer6"/>
+                <af:image id="i2"
+                          inlineStyle="width:130px; height:130px;"
+                          binding="#{backingBeanScope.ImageRepoBean.previewImage}"
+                          source="/imageservlet?id=temp#{pageFlowScope.path}" partialTriggers="if1"/>
+              </af:panelFormLayout>
+            </af:dialog>
+          </af:popup>
+        </f:facet>
+      </af:decorativeBox>
+    </f:facet>
+  </af:decorativeBox>
+</jsp:root>

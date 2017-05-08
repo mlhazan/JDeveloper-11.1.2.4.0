@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="imagePageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CorporateVO1" RangeSize="25" DataControl="AppModuleDataControl" id="CorporateVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CorporateVO1Iterator" id="CorproId">
+      <AttrNames>
+        <Item Value="CorproId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CorporateVO1Iterator" id="Name">
+      <AttrNames>
+        <Item Value="Name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CorporateVO1Iterator" id="CorporateImageFile">
+      <AttrNames>
+        <Item Value="CorporateImageFile"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="CorporateVO1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="CorporateVO1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

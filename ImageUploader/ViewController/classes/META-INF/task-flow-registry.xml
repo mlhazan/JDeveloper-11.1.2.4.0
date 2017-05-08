@@ -1,0 +1,4 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="WEB-INF/image-tf.xml" id="image-tf" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false" page-type="jsp"/>
+</task-flow-registry>

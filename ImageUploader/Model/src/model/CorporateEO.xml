@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CorporateEO"
+  Version="11.1.2.64.36"
+  DBObjectType="table"
+  DBObjectName="CORPORATE_PROFILES"
+  AliasName="CorporateEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <Attribute
+    Name="CorproId"
+    Precision="10"
+    Scale="0"
+    ColumnName="CORPRO_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="CORPORATE_PROFILES"/>
+  <Attribute
+    Name="Name"
+    Precision="100"
+    ColumnName="NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CORPORATE_PROFILES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CorporateImageFile"
+    IsQueriable="false"
+    ColumnName="CORPORATE_IMAGE_FILE"
+    SQLType="BLOB"
+    Type="oracle.jbo.domain.BlobDomain"
+    ColumnType="BLOB"
+    TableName="CORPORATE_PROFILES"/>
+  <Attribute
+    Name="Rowid"
+    IsUpdateable="false"
+    ColumnName="ROWID"
+    SQLType="ROWID"
+    Type="oracle.jbo.domain.RowID"
+    ColumnType="ROWID"
+    TableName="CORPORATE_PROFILES"
+    PrimaryKey="true"/>
+</Entity>
