@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="11.1.2.64.36"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="DepartmentsView1"
+    ViewObjectName="sample.model.vo.DepartmentsView"/>
+  <ViewUsage
+    Name="EmployeesView1"
+    ViewObjectName="sample.model.vo.EmployeesView"/>
+  <ViewUsage
+    Name="JobsView1"
+    ViewObjectName="sample.model.vo.JobsView"/>
+  <ViewUsage
+    Name="EmployeesView2"
+    ViewObjectName="sample.model.vo.EmployeesView"/>
+  <ViewUsage
+    Name="DepartmentsView2"
+    ViewObjectName="sample.model.vo.DepartmentsView"/>
+  <ViewUsage
+    Name="EmployeesView3"
+    ViewObjectName="sample.model.vo.EmployeesView"/>
+  <ViewUsage
+    Name="HighlyPaidEmployees1"
+    ViewObjectName="sample.model.vo.HighlyPaidEmployees"/>
+  <ViewUsage
+    Name="EmpTranslated1"
+    ViewObjectName="sample.model.vo.EmpTranslated"/>
+  <ViewUsage
+    Name="JobsView2"
+    ViewObjectName="sample.model.vo.JobsView"/>
+  <ViewUsage
+    Name="EmployeesView4"
+    ViewObjectName="sample.model.vo.EmployeesView"/>
+  <ViewLinkUsage
+    Name="EmpManagerFkLink1"
+    ViewLinkObjectName="sample.model.vo.EmpManagerFkLink"
+    SrcViewUsageName="sample.model.vo.AppModule.EmployeesView1"
+    DstViewUsageName="sample.model.vo.AppModule.EmployeesView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="DeptMgrFkLink1"
+    ViewLinkObjectName="sample.model.vo.DeptMgrFkLink"
+    SrcViewUsageName="sample.model.vo.AppModule.EmployeesView1"
+    DstViewUsageName="sample.model.vo.AppModule.DepartmentsView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EmpDeptFkLink1"
+    ViewLinkObjectName="sample.model.vo.EmpDeptFkLink"
+    SrcViewUsageName="sample.model.vo.AppModule.DepartmentsView1"
+    DstViewUsageName="sample.model.vo.AppModule.EmployeesView3"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="JobsToEmployee"
+    ViewLinkObjectName="sample.model.vo.JobsToEmployee"
+    SrcViewUsageName="sample.model.vo.AppModule.JobsView2"
+    DstViewUsageName="sample.model.vo.AppModule.EmployeesView4"
+    Reversed="false"/>
+</AppModule>
