@@ -5,6 +5,8 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="EmployeeVO3" RangeSize="25" DataControl="EmployeeAppModuleDataControl" id="EmployeeVO3Iterator"/>
+    <iterator Binds="DepartmentVO1" RangeSize="25" DataControl="EmployeeAppModuleDataControl"
+              id="DepartmentVO1Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="EmployeeVO3Iterator" id="EmployeeId">
@@ -66,5 +68,25 @@
             DataControl="EmployeeAppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
             DataControl="EmployeeAppModuleDataControl"/>
+    <attributeValues IterBinding="DepartmentVO1Iterator" id="DepartmentId1">
+      <AttrNames>
+        <Item Value="DepartmentId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DepartmentVO1Iterator" id="DepartmentName">
+      <AttrNames>
+        <Item Value="DepartmentName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DepartmentVO1Iterator" id="ManagerId1">
+      <AttrNames>
+        <Item Value="ManagerId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DepartmentVO1Iterator" id="LocationId">
+      <AttrNames>
+        <Item Value="LocationId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

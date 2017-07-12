@@ -6,9 +6,90 @@
         <af:form id="f1">
             <af:showDetailHeader text="Manage Employee" disclosed="true" id="sdh1">
                 <f:facet name="context">
-                    <af:commandButton text="Add Department" id="cb3" useWindow="true" windowEmbedStyle="window"
-                                      windowHeight="300" windowWidth="450" action="newDepartmenrt"/>
+                    <af:group id="g2">
+                        <af:commandButton text="Add Department" id="cb3" useWindow="true" windowEmbedStyle="window"
+                                          windowHeight="300" windowWidth="450" action="newDepartmenrt"/>
+                        <af:commandButton text="Add Department using Popup" id="cb4" partialSubmit="true"
+                                          useWindow="true" windowModalityType="applicationModal" windowHeight="200"
+                                          windowWidth="400">
+                            <af:showPopupBehavior popupId="p1" triggerType="action"/>
+                        </af:commandButton>
+                    </af:group>
                 </f:facet>
+                <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+                    <af:dialog id="d2" title="Department">
+                     <af:decorativeBox id="db1">
+                        <f:facet name="center">
+                            <af:panelStretchLayout id="psl1">
+                                <f:facet name="bottom"/>
+                                <f:facet name="center">
+                                    <af:panelFormLayout id="pfl2">
+                                        <af:inputText value="#{bindings.DepartmentId1.inputValue}"
+                                                      label="#{bindings.DepartmentId1.hints.label}"
+                                                      required="#{bindings.DepartmentId1.hints.mandatory}"
+                                                      columns="#{bindings.DepartmentId1.hints.displayWidth}"
+                                                      maximumLength="#{bindings.DepartmentId1.hints.precision}"
+                                                      shortDesc="#{bindings.DepartmentId1.hints.tooltip}" id="it11">
+                                            <f:validator binding="#{bindings.DepartmentId1.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.DepartmentId1.format}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.DepartmentName.inputValue}"
+                                                      label="#{bindings.DepartmentName.hints.label}"
+                                                      required="#{bindings.DepartmentName.hints.mandatory}"
+                                                      columns="#{bindings.DepartmentName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.DepartmentName.hints.precision}"
+                                                      shortDesc="#{bindings.DepartmentName.hints.tooltip}" id="it12">
+                                            <f:validator binding="#{bindings.DepartmentName.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.ManagerId1.inputValue}"
+                                                      label="#{bindings.ManagerId1.hints.label}"
+                                                      required="#{bindings.ManagerId1.hints.mandatory}"
+                                                      columns="#{bindings.ManagerId1.hints.displayWidth}"
+                                                      maximumLength="#{bindings.ManagerId1.hints.precision}"
+                                                      shortDesc="#{bindings.ManagerId1.hints.tooltip}" id="it13">
+                                            <f:validator binding="#{bindings.ManagerId1.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.ManagerId1.format}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.LocationId.inputValue}"
+                                                      label="#{bindings.LocationId.hints.label}"
+                                                      required="#{bindings.LocationId.hints.mandatory}"
+                                                      columns="#{bindings.LocationId.hints.displayWidth}"
+                                                      maximumLength="#{bindings.LocationId.hints.precision}"
+                                                      shortDesc="#{bindings.LocationId.hints.tooltip}" id="it14">
+                                            <f:validator binding="#{bindings.LocationId.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.LocationId.format}"/>
+                                        </af:inputText>
+                                    </af:panelFormLayout>
+                                </f:facet>
+                                <f:facet name="top">
+                                    <af:showDetailHeader text="Manage Department" disclosed="true" id="sdh2">
+                                        <f:facet name="context">
+                                            <af:group id="g3">
+                                                <af:commandButton actionListener="#{bindings.Commit.execute}"
+                                                                  text="Commit" disabled="#{!bindings.Commit.enabled}"
+                                                                  id="cb5"/>
+                                                <af:commandButton actionListener="#{bindings.Rollback.execute}"
+                                                                  text="Rollback"
+                                                                  disabled="#{!bindings.Rollback.enabled}"
+                                                                  immediate="true" id="cb6">
+                                                    <af:resetActionListener/>
+                                                </af:commandButton>
+                                            </af:group>
+                                        </f:facet>
+                                        <f:facet name="legend"/>
+                                        <f:facet name="info"/>
+                                    </af:showDetailHeader>
+                                </f:facet>
+                            </af:panelStretchLayout>
+                        </f:facet>
+                    </af:decorativeBox>
+                        <f:facet name="buttonBar"/>
+                    </af:dialog>
+                   
+                </af:popup>
                 <f:facet name="menuBar"/>
                 <f:facet name="toolbar"/>
                 <f:facet name="legend">
