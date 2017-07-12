@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.2.64.36" id="DataBindings"
+             SeparateXMLFiles="false" Package="view" ClientType="Generic">
+  <pageMap>
+    <page path="/index.jsf" usageId="view_indexPageDef"/>
+    <page path="/crud.jsf" usageId="view_crudPageDef"/>
+    <page path="/WEB-INF/department-tf.xml#department-tf@CreateInsert"
+          usageId="view_department_tf_department_tf_CreateInsertPageDef"/>
+    <page path="/departmentView.jsf" usageId="view_departmentViewPageDef"/>
+    <page path="/employeeView.jsf" usageId="view_employeeViewPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_indexPageDef" path="view.pageDefs.indexPageDef"/>
+    <page id="view_crudPageDef" path="view.pageDefs.crudPageDef"/>
+    <page id="view_department_tf_department_tf_CreateInsertPageDef"
+          path="view.pageDefs.department_tf_department_tf_CreateInsertPageDef"/>
+    <page id="view_departmentViewPageDef" path="view.pageDefs.departmentViewPageDef"/>
+    <page id="view_employeeViewPageDef" path="view.pageDefs.employeeViewPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="EmployeeAppModuleDataControl" Package="application"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="EmployeeAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="departmentView.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:showDetailHeader text="Manage Department" disclosed="true" id="sdh1">
+                <f:facet name="context">
+                    <af:group id="g1">
+                        <af:commandButton text="Save" id="cb1" action="commit"/>
+                        <af:commandButton text="Cancel" id="cb2" action="rollback"/>
+                    </af:group>
+                </f:facet>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="legend">
+                    <af:panelFormLayout id="pfl1">
+                        <af:inputText value="#{bindings.DepartmentId.inputValue}"
+                                      label="#{bindings.DepartmentId.hints.label}"
+                                      required="#{bindings.DepartmentId.hints.mandatory}"
+                                      columns="#{bindings.DepartmentId.hints.displayWidth}"
+                                      maximumLength="#{bindings.DepartmentId.hints.precision}"
+                                      shortDesc="#{bindings.DepartmentId.hints.tooltip}" id="it1">
+                            <f:validator binding="#{bindings.DepartmentId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentId.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.DepartmentName.inputValue}"
+                                      label="#{bindings.DepartmentName.hints.label}"
+                                      required="#{bindings.DepartmentName.hints.mandatory}"
+                                      columns="#{bindings.DepartmentName.hints.displayWidth}"
+                                      maximumLength="#{bindings.DepartmentName.hints.precision}"
+                                      shortDesc="#{bindings.DepartmentName.hints.tooltip}" id="it2">
+                            <f:validator binding="#{bindings.DepartmentName.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.ManagerId.inputValue}" label="#{bindings.ManagerId.hints.label}"
+                                      required="#{bindings.ManagerId.hints.mandatory}"
+                                      columns="#{bindings.ManagerId.hints.displayWidth}"
+                                      maximumLength="#{bindings.ManagerId.hints.precision}"
+                                      shortDesc="#{bindings.ManagerId.hints.tooltip}" id="it3">
+                            <f:validator binding="#{bindings.ManagerId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.ManagerId.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.LocationId.inputValue}"
+                                      label="#{bindings.LocationId.hints.label}"
+                                      required="#{bindings.LocationId.hints.mandatory}"
+                                      columns="#{bindings.LocationId.hints.displayWidth}"
+                                      maximumLength="#{bindings.LocationId.hints.precision}"
+                                      shortDesc="#{bindings.LocationId.hints.tooltip}" id="it4">
+                            <f:validator binding="#{bindings.LocationId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.LocationId.format}"/>
+                        </af:inputText>
+                    </af:panelFormLayout>
+                </f:facet>
+                <f:facet name="info"/>
+            </af:showDetailHeader>
+        </af:form>
+    </af:document>
+</f:view>

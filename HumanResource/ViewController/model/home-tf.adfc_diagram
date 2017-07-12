@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">employeeView</property>
+      <property
+         name="page">/employeeView.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>employeeView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">407.24707</property>
+      <property
+         name="x">360.0</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="taskFlowId">department-tf</property>
+      <property
+         name="activityId">department-tf</property>
+      <property
+         name="documentReference">/WEB-INF/department-tf.xml</property>
+      <property
+         name="runAsDialog">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>department-tf&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">404.59766</property>
+      <property
+         name="x">725.0</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">newDepartmenrt</property>
+      <property
+         name="sdm:polyPoints">R50,401.0,406.89648,684.0,404.24707,L50</property>
+   </ControlFlowCase>
+</SDM>

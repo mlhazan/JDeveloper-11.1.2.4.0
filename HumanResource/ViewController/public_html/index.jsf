@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="index.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:table value="#{bindings.EmployeeVO1.collectionModel}" var="row" rows="#{bindings.EmployeeVO1.rangeSize}"
+                      emptyText="#{bindings.EmployeeVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.EmployeeVO1.rangeSize}" rowBandingInterval="0"
+                      filterModel="#{bindings.EmployeeVO1Query.queryDescriptor}"
+                      queryListener="#{bindings.EmployeeVO1Query.processQuery}" filterVisible="true" varStatus="vs"
+                      selectedRowKeys="#{bindings.EmployeeVO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.EmployeeVO1.collectionModel.makeCurrent}" rowSelection="single"
+                      id="t1">
+                <af:column sortProperty="#{bindings.EmployeeVO1.hints.HireDate.name}" filterable="true" sortable="true"
+                           headerText="#{bindings.EmployeeVO1.hints.HireDate.label}" id="c1">
+                    <f:facet name="filter">
+                        <af:inputDate value="#{vs.filterCriteria.HireDate}" id="id1">
+                            <af:convertDateTime pattern="#{bindings.EmployeeVO1.hints.HireDate.format}"/>
+                        </af:inputDate>
+                    </f:facet>
+                    <af:inputDate value="#{row.bindings.HireDate.inputValue}"
+                                  label="#{bindings.EmployeeVO1.hints.HireDate.label}"
+                                  required="#{bindings.EmployeeVO1.hints.HireDate.mandatory}"
+                                  columns="#{bindings.EmployeeVO1.hints.HireDate.displayWidth}"
+                                  shortDesc="#{bindings.EmployeeVO1.hints.HireDate.tooltip}" id="id2">
+                        <f:validator binding="#{row.bindings.HireDate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.EmployeeVO1.hints.HireDate.format}"/>
+                    </af:inputDate>
+                </af:column>
+                <af:column sortProperty="#{bindings.EmployeeVO1.hints.JobId.name}" filterable="true" sortable="true"
+                           headerText="#{bindings.EmployeeVO1.hints.JobId.label}" id="c2">
+                    <af:inputText value="#{row.bindings.JobId.inputValue}"
+                                  label="#{bindings.EmployeeVO1.hints.JobId.label}"
+                                  required="#{bindings.EmployeeVO1.hints.JobId.mandatory}"
+                                  columns="#{bindings.EmployeeVO1.hints.JobId.displayWidth}"
+                                  maximumLength="#{bindings.EmployeeVO1.hints.JobId.precision}"
+                                  shortDesc="#{bindings.EmployeeVO1.hints.JobId.tooltip}" id="it1">
+                        <f:validator binding="#{row.bindings.JobId.validator}"/>
+                    </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.EmployeeVO1.hints.Salary.name}" filterable="true" sortable="true"
+                           headerText="#{bindings.EmployeeVO1.hints.Salary.label}" id="c3">
+                    <af:inputText value="#{row.bindings.Salary.inputValue}"
+                                  label="#{bindings.EmployeeVO1.hints.Salary.label}"
+                                  required="#{bindings.EmployeeVO1.hints.Salary.mandatory}"
+                                  columns="#{bindings.EmployeeVO1.hints.Salary.displayWidth}"
+                                  maximumLength="#{bindings.EmployeeVO1.hints.Salary.precision}"
+                                  shortDesc="#{bindings.EmployeeVO1.hints.Salary.tooltip}" id="it2">
+                        <f:validator binding="#{row.bindings.Salary.validator}"/>
+                    </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.EmployeeVO1.hints.CommissionPct.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.EmployeeVO1.hints.CommissionPct.label}" id="c4">
+                    <af:inputText value="#{row.bindings.CommissionPct.inputValue}"
+                                  label="#{bindings.EmployeeVO1.hints.CommissionPct.label}"
+                                  required="#{bindings.EmployeeVO1.hints.CommissionPct.mandatory}"
+                                  columns="#{bindings.EmployeeVO1.hints.CommissionPct.displayWidth}"
+                                  maximumLength="#{bindings.EmployeeVO1.hints.CommissionPct.precision}"
+                                  shortDesc="#{bindings.EmployeeVO1.hints.CommissionPct.tooltip}" id="it3">
+                        <f:validator binding="#{row.bindings.CommissionPct.validator}"/>
+                    </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.EmployeeVO1.hints.ManagerId.name}" filterable="true" sortable="true"
+                           headerText="#{bindings.EmployeeVO1.hints.ManagerId.label}" id="c5">
+                    <af:inputText value="#{row.bindings.ManagerId.inputValue}"
+                                  label="#{bindings.EmployeeVO1.hints.ManagerId.label}"
+                                  required="#{bindings.EmployeeVO1.hints.ManagerId.mandatory}"
+                                  columns="#{bindings.EmployeeVO1.hints.ManagerId.displayWidth}"
+                                  maximumLength="#{bindings.EmployeeVO1.hints.ManagerId.precision}"
+                                  shortDesc="#{bindings.EmployeeVO1.hints.ManagerId.tooltip}" id="it4">
+                        <f:validator binding="#{row.bindings.ManagerId.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.EmployeeVO1.hints.ManagerId.format}"/>
+                    </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.EmployeeVO1.hints.DepartmentId.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.EmployeeVO1.hints.DepartmentId.label}" id="c6">
+                    <af:inputText value="#{row.bindings.DepartmentId.inputValue}"
+                                  label="#{bindings.EmployeeVO1.hints.DepartmentId.label}"
+                                  required="#{bindings.EmployeeVO1.hints.DepartmentId.mandatory}"
+                                  columns="#{bindings.EmployeeVO1.hints.DepartmentId.displayWidth}"
+                                  maximumLength="#{bindings.EmployeeVO1.hints.DepartmentId.precision}"
+                                  shortDesc="#{bindings.EmployeeVO1.hints.DepartmentId.tooltip}" id="it5">
+                        <f:validator binding="#{row.bindings.DepartmentId.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.EmployeeVO1.hints.DepartmentId.format}"/>
+                    </af:inputText>
+                </af:column>
+            </af:table>
+        </af:form>
+    </af:document>
+</f:view>

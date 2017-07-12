@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <metadata-resource id="__1">/home-tf.xml</metadata-resource>
+</adfc-config>
