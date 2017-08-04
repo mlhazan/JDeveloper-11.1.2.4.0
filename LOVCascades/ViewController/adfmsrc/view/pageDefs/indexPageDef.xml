@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="indexPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EmployeeVO3" RangeSize="25" DataControl="AppModuleDataControl" id="EmployeeVO3Iterator"/>
+    <iterator Binds="LocationVO1" RangeSize="25" DataControl="AppModuleDataControl" id="LocationVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="EmployeeVO3Iterator" id="EmployeeId">
+      <AttrNames>
+        <Item Value="EmployeeId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="EmployeeVO3Iterator" StaticList="false" Uses="LOV_DepartmentId" id="DepartmentId1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <listOfValues StaticList="false" IterBinding="EmployeeVO3Iterator" Uses="LOV_DepartmentId" id="DepartmentId2"/>
+    <attributeValues IterBinding="LocationVO1Iterator" id="LocationId">
+      <AttrNames>
+        <Item Value="LocationId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LocationVO1Iterator" id="StreetAddress">
+      <AttrNames>
+        <Item Value="StreetAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LocationVO1Iterator" id="PostalCode">
+      <AttrNames>
+        <Item Value="PostalCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LocationVO1Iterator" id="City">
+      <AttrNames>
+        <Item Value="City"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="LocationVO1Iterator" StaticList="false" Uses="LOV_StateProvince" id="StateProvince"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="LocationVO1Iterator" StaticList="false" Uses="LOV_CountryId" id="CountryId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

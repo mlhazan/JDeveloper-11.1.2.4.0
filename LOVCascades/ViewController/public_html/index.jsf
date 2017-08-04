@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="index.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelFormLayout id="pfl2">
+                <af:inputText value="#{bindings.EmployeeId.inputValue}" label="#{bindings.EmployeeId.hints.label}"
+                              required="#{bindings.EmployeeId.hints.mandatory}"
+                              columns="#{bindings.EmployeeId.hints.displayWidth}"
+                              maximumLength="#{bindings.EmployeeId.hints.precision}"
+                              shortDesc="#{bindings.EmployeeId.hints.tooltip}" id="it5">
+                    <f:validator binding="#{bindings.EmployeeId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeeId.format}"/>
+                </af:inputText>
+                <af:selectOneChoice value="#{bindings.DepartmentId1.inputValue}" label="#{bindings.DepartmentId1.label}"
+                                    required="#{bindings.DepartmentId1.hints.mandatory}"
+                                    shortDesc="#{bindings.DepartmentId1.hints.tooltip}" id="soc1">
+                    <f:selectItems value="#{bindings.DepartmentId1.items}" id="si1"/>
+                </af:selectOneChoice>
+            </af:panelFormLayout>
+            <af:panelFormLayout id="pfl1">
+                <af:inputText value="#{bindings.LocationId.inputValue}" label="#{bindings.LocationId.hints.label}"
+                              required="#{bindings.LocationId.hints.mandatory}"
+                              columns="#{bindings.LocationId.hints.displayWidth}"
+                              maximumLength="#{bindings.LocationId.hints.precision}"
+                              shortDesc="#{bindings.LocationId.hints.tooltip}" id="it1">
+                    <f:validator binding="#{bindings.LocationId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.LocationId.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.StreetAddress.inputValue}" label="#{bindings.StreetAddress.hints.label}"
+                              required="#{bindings.StreetAddress.hints.mandatory}"
+                              columns="#{bindings.StreetAddress.hints.displayWidth}"
+                              maximumLength="#{bindings.StreetAddress.hints.precision}"
+                              shortDesc="#{bindings.StreetAddress.hints.tooltip}" id="it2">
+                    <f:validator binding="#{bindings.StreetAddress.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.PostalCode.inputValue}" label="#{bindings.PostalCode.hints.label}"
+                              required="#{bindings.PostalCode.hints.mandatory}"
+                              columns="#{bindings.PostalCode.hints.displayWidth}"
+                              maximumLength="#{bindings.PostalCode.hints.precision}"
+                              shortDesc="#{bindings.PostalCode.hints.tooltip}" id="it3">
+                    <f:validator binding="#{bindings.PostalCode.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.City.inputValue}" label="#{bindings.City.hints.label}"
+                              required="#{bindings.City.hints.mandatory}" columns="#{bindings.City.hints.displayWidth}"
+                              maximumLength="#{bindings.City.hints.precision}"
+                              shortDesc="#{bindings.City.hints.tooltip}" id="it4">
+                    <f:validator binding="#{bindings.City.validator}"/>
+                </af:inputText>
+                <af:selectOneChoice value="#{bindings.CountryId.inputValue}" label="#{bindings.CountryId.label}"
+                                    required="#{bindings.CountryId.hints.mandatory}"
+                                    shortDesc="#{bindings.CountryId.hints.tooltip}" id="soc3" autoSubmit="true">
+                    <f:selectItems value="#{bindings.CountryId.items}" id="si3"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice value="#{bindings.StateProvince.inputValue}" label="#{bindings.StateProvince.label}"
+                                    required="#{bindings.StateProvince.hints.mandatory}"
+                                    shortDesc="#{bindings.StateProvince.hints.tooltip}" id="soc2"
+                                    partialTriggers="soc3">
+                    <f:selectItems value="#{bindings.StateProvince.items}" id="si2"/>
+                </af:selectOneChoice>
+            </af:panelFormLayout>
+        </af:form>
+    </af:document>
+</f:view>

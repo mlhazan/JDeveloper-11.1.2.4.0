@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="LocCIdFkLink"
+  Version="11.1.2.64.36"
+  EntityAssociation="entity.LocCIdFkAssoc">
+  <ViewLinkDefEnd
+    Name="CountrieVO"
+    Cardinality="1"
+    Source="true"
+    Owner="viewObjects.CountrieVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="CountrieVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="viewObjects.CountrieVO.CountryId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="LocationVO"
+    Cardinality="-1"
+    Owner="viewObjects.LocationVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="LocationVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="viewObjects.LocationVO.CountryId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmpDeptFkLink"
+  Version="11.1.2.64.36"
+  EntityAssociation="entity.EmpDeptFkAssoc">
+  <ViewLinkDefEnd
+    Name="DepartmentVO1_1"
+    Cardinality="1"
+    Source="true"
+    Owner="viewObjects.DepartmentVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="DepartmentVO1"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="viewObjects.DepartmentVO.DepartmentId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="EmployeeVO"
+    Cardinality="-1"
+    Owner="viewObjects.EmployeeVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="EmployeeVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="viewObjects.EmployeeVO.DepartmentId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

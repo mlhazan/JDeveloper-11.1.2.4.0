@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DepartmentVO"
+  Version="11.1.2.64.36"
+  SelectList="DepartmentEO.DEPARTMENT_ID, 
+       DepartmentEO.DEPARTMENT_NAME, 
+       DepartmentEO.MANAGER_ID, 
+       DepartmentEO.LOCATION_ID"
+  FromList="DEPARTMENTS DepartmentEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="DepartmentEO"
+    Entity="entity.DepartmentEO"/>
+  <ViewAttribute
+    Name="DepartmentId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DepartmentId"
+    EntityUsage="DepartmentEO"
+    AliasName="DEPARTMENT_ID"/>
+  <ViewAttribute
+    Name="DepartmentName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DepartmentName"
+    EntityUsage="DepartmentEO"
+    AliasName="DEPARTMENT_NAME"/>
+  <ViewAttribute
+    Name="ManagerId"
+    PrecisionRule="true"
+    EntityAttrName="ManagerId"
+    EntityUsage="DepartmentEO"
+    AliasName="MANAGER_ID"/>
+  <ViewAttribute
+    Name="LocationId"
+    PrecisionRule="true"
+    EntityAttrName="LocationId"
+    EntityUsage="DepartmentEO"
+    AliasName="LOCATION_ID"/>
+  <ViewLinkAccessor
+    Name="EmployeeVO"
+    ViewLink="viewObjects.EmpDeptFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="LocationVO"
+  Version="11.1.2.64.36"
+  SelectList="LocationEO.LOCATION_ID, 
+       LocationEO.STREET_ADDRESS, 
+       LocationEO.POSTAL_CODE, 
+       LocationEO.CITY, 
+       LocationEO.STATE_PROVINCE, 
+       LocationEO.COUNTRY_ID"
+  FromList="LOCATIONS LocationEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <ViewAccessor
+    Name="CountrieVO1"
+    ViewObjectName="viewObjects.CountrieVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="StatesLOV1"
+    ViewObjectName="viewObjects.StatesLOV">
+    <ParameterMap>
+      <PIMap Variable="p_country">
+        <TransientExpression><![CDATA[CountryId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_CountryId"
+    ListVOName="CountrieVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CountryId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CountryId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CountryName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_StateProvince"
+    ListVOName="StatesLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="StateProvince"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="StateProvince"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="StateProvince"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="LocationEO"
+    Entity="entity.LocationEO"/>
+  <ViewAttribute
+    Name="LocationId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LocationId"
+    EntityUsage="LocationEO"
+    AliasName="LOCATION_ID"/>
+  <ViewAttribute
+    Name="StreetAddress"
+    PrecisionRule="true"
+    EntityAttrName="StreetAddress"
+    EntityUsage="LocationEO"
+    AliasName="STREET_ADDRESS"/>
+  <ViewAttribute
+    Name="PostalCode"
+    PrecisionRule="true"
+    EntityAttrName="PostalCode"
+    EntityUsage="LocationEO"
+    AliasName="POSTAL_CODE"/>
+  <ViewAttribute
+    Name="City"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="City"
+    EntityUsage="LocationEO"
+    AliasName="CITY"/>
+  <ViewAttribute
+    Name="StateProvince"
+    PrecisionRule="true"
+    EntityAttrName="StateProvince"
+    EntityUsage="LocationEO"
+    AliasName="STATE_PROVINCE"
+    LOVName="LOV_StateProvince">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CountryId"
+    PrecisionRule="true"
+    EntityAttrName="CountryId"
+    EntityUsage="LocationEO"
+    AliasName="COUNTRY_ID"
+    LOVName="LOV_CountryId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+</ViewObject>

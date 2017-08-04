@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="11.1.2.64.36"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="DepartmentVO1"
+    ViewObjectName="viewObjects.DepartmentVO"/>
+  <ViewUsage
+    Name="EmployeeVO1"
+    ViewObjectName="viewObjects.EmployeeVO"/>
+  <ViewUsage
+    Name="DepartmentVO2"
+    ViewObjectName="viewObjects.DepartmentVO"/>
+  <ViewUsage
+    Name="EmployeeVO2"
+    ViewObjectName="viewObjects.EmployeeVO"/>
+  <ViewUsage
+    Name="EmployeeVO3"
+    ViewObjectName="viewObjects.EmployeeVO"/>
+  <ViewUsage
+    Name="CountrieVO1"
+    ViewObjectName="viewObjects.CountrieVO"/>
+  <ViewUsage
+    Name="LocationVO1"
+    ViewObjectName="viewObjects.LocationVO"/>
+  <ViewUsage
+    Name="LocationVO2"
+    ViewObjectName="viewObjects.LocationVO"/>
+  <ViewLinkUsage
+    Name="DeptMgrFkLink1"
+    ViewLinkObjectName="viewObjects.DeptMgrFkLink"
+    SrcViewUsageName="viewObjectsLinks.AppModule.EmployeeVO1"
+    DstViewUsageName="viewObjectsLinks.AppModule.DepartmentVO2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EmpManagerFkLink1"
+    ViewLinkObjectName="viewObjects.EmpManagerFkLink"
+    SrcViewUsageName="viewObjectsLinks.AppModule.EmployeeVO1"
+    DstViewUsageName="viewObjectsLinks.AppModule.EmployeeVO2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EmpDeptFkLink1"
+    ViewLinkObjectName="viewObjects.EmpDeptFkLink"
+    SrcViewUsageName="viewObjectsLinks.AppModule.DepartmentVO1"
+    DstViewUsageName="viewObjectsLinks.AppModule.EmployeeVO3"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="LocCIdFkLink1"
+    ViewLinkObjectName="viewObjects.LocCIdFkLink"
+    SrcViewUsageName="viewObjectsLinks.AppModule.CountrieVO1"
+    DstViewUsageName="viewObjectsLinks.AppModule.LocationVO2"
+    Reversed="false"/>
+</AppModule>
