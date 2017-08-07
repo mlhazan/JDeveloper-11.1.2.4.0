@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AddressesVO"
+  Version="11.1.2.64.36"
+  SelectList="AddressesEO.ADDRESS_LINE_1, 
+       AddressesEO.ADDRESS_LINE_2, 
+       AddressesEO.COUNTRY_ID, 
+       AddressesEO.STATE_PROVINCE, 
+       AddressesEO.CITY, 
+       AddressesEO.ROWID"
+  FromList="ADDRESSES AddressesEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <ViewAccessor
+    Name="CityVO1"
+    ViewObjectName="model.viewObject.CityVO">
+    <ParameterMap>
+      <PIMap Variable="p_country_id">
+        <TransientExpression><![CDATA[CountryId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="p_state_province">
+        <TransientExpression><![CDATA[StateProvince]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="CountryVO1"
+    ViewObjectName="model.viewObject.CountryVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="StateVO1"
+    ViewObjectName="model.viewObject.StateVO">
+    <ParameterMap>
+      <PIMap Variable="p_country_id">
+        <TransientExpression><![CDATA[CountryId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_CountryId"
+    ListVOName="CountryVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CountryId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CountryId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CountryId"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_StateProvince"
+    ListVOName="StateVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="StateProvince"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="StateProvince"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="StateProvince"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_City"
+    ListVOName="CityVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="City"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="City"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="City"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="AddressesEO"
+    Entity="model.entity.AddressesEO"/>
+  <ViewAttribute
+    Name="AddressLine1"
+    PrecisionRule="true"
+    EntityAttrName="AddressLine1"
+    EntityUsage="AddressesEO"
+    AliasName="ADDRESS_LINE_1"/>
+  <ViewAttribute
+    Name="AddressLine2"
+    PrecisionRule="true"
+    EntityAttrName="AddressLine2"
+    EntityUsage="AddressesEO"
+    AliasName="ADDRESS_LINE_2"/>
+  <ViewAttribute
+    Name="CountryId"
+    PrecisionRule="true"
+    EntityAttrName="CountryId"
+    EntityUsage="AddressesEO"
+    AliasName="COUNTRY_ID"
+    LOVName="LOV_CountryId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StateProvince"
+    PrecisionRule="true"
+    EntityAttrName="StateProvince"
+    EntityUsage="AddressesEO"
+    AliasName="STATE_PROVINCE"
+    LOVName="LOV_StateProvince">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="City"
+    PrecisionRule="true"
+    EntityAttrName="City"
+    EntityUsage="AddressesEO"
+    AliasName="CITY"
+    LOVName="LOV_City">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Rowid"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Rowid"
+    EntityUsage="AddressesEO"
+    AliasName="ROWID"/>
+</ViewObject>

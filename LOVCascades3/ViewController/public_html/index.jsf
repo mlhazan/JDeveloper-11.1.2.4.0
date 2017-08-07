@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="index.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelFormLayout id="pfl1">
+                <af:inputText value="#{bindings.AddressLine1.inputValue}" label="#{bindings.AddressLine1.hints.label}"
+                              required="#{bindings.AddressLine1.hints.mandatory}"
+                              columns="#{bindings.AddressLine1.hints.displayWidth}"
+                              maximumLength="#{bindings.AddressLine1.hints.precision}"
+                              shortDesc="#{bindings.AddressLine1.hints.tooltip}" id="it1">
+                    <f:validator binding="#{bindings.AddressLine1.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.AddressLine2.inputValue}" label="#{bindings.AddressLine2.hints.label}"
+                              required="#{bindings.AddressLine2.hints.mandatory}"
+                              columns="#{bindings.AddressLine2.hints.displayWidth}"
+                              maximumLength="#{bindings.AddressLine2.hints.precision}"
+                              shortDesc="#{bindings.AddressLine2.hints.tooltip}" id="it2">
+                    <f:validator binding="#{bindings.AddressLine2.validator}"/>
+                </af:inputText>
+                <af:selectOneChoice value="#{bindings.CountryId.inputValue}" label="#{bindings.CountryId.label}"
+                                    required="#{bindings.CountryId.hints.mandatory}"
+                                    shortDesc="#{bindings.CountryId.hints.tooltip}" id="soc1" autoSubmit="true">
+                    <f:selectItems value="#{bindings.CountryId.items}" id="si1"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice value="#{bindings.StateProvince.inputValue}" label="#{bindings.StateProvince.label}"
+                                    required="#{bindings.StateProvince.hints.mandatory}"
+                                    shortDesc="#{bindings.StateProvince.hints.tooltip}" id="soc2" autoSubmit="true"
+                                    partialTriggers="soc1">
+                    <f:selectItems value="#{bindings.StateProvince.items}" id="si2"/>
+                </af:selectOneChoice>
+                <af:selectOneChoice value="#{bindings.City.inputValue}" label="#{bindings.City.label}"
+                                    required="#{bindings.City.hints.mandatory}"
+                                    shortDesc="#{bindings.City.hints.tooltip}" id="soc3" partialTriggers="soc1 soc2">
+                    <f:selectItems value="#{bindings.City.items}" id="si3"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{bindings.Rowid.inputValue}" label="#{bindings.Rowid.hints.label}"
+                              required="#{bindings.Rowid.hints.mandatory}"
+                              columns="#{bindings.Rowid.hints.displayWidth}"
+                              maximumLength="#{bindings.Rowid.hints.precision}"
+                              shortDesc="#{bindings.Rowid.hints.tooltip}" id="it3">
+                    <f:validator binding="#{bindings.Rowid.validator}"/>
+                </af:inputText>
+            </af:panelFormLayout>
+            <af:commandButton actionListener="#{bindings.CreateInsert1.execute}" text="Create"
+                              disabled="#{!bindings.CreateInsert1.enabled}" id="cb1"/>
+            <af:commandButton actionListener="#{bindings.Delete1.execute}" text="Delete"
+                              disabled="#{!bindings.Delete1.enabled}" id="cb2"/>
+            <af:commandButton actionListener="#{bindings.Commit.execute}" text="Commit"
+                              disabled="#{!bindings.Commit.enabled}" id="cb3"/>
+            <af:commandButton actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                              disabled="#{!bindings.Rollback.enabled}" immediate="true" id="cb4">
+                <af:resetActionListener/>
+            </af:commandButton>
+        </af:form>
+    </af:document>
+</f:view>

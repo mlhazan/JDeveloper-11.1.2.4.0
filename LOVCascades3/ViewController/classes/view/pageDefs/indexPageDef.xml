@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="indexPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AddressesVO1" RangeSize="25" DataControl="AppModuleDataControl" id="AddressesVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="AddressesVO1Iterator" id="AddressLine1">
+      <AttrNames>
+        <Item Value="AddressLine1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AddressesVO1Iterator" id="AddressLine2">
+      <AttrNames>
+        <Item Value="AddressLine2"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="AddressesVO1Iterator" StaticList="false" Uses="LOV_CountryId" id="CountryId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="AddressesVO1Iterator" StaticList="false" Uses="LOV_StateProvince" id="StateProvince"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="AddressesVO1Iterator" StaticList="false" Uses="LOV_City" id="City" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="AddressesVO1Iterator" id="Rowid">
+      <AttrNames>
+        <Item Value="Rowid"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="AddressesVO1Iterator" id="CreateInsert" InstanceName="AppModuleDataControl.AddressesVO1"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="AddressesVO1Iterator" id="Delete" InstanceName="AppModuleDataControl.AddressesVO1"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="AddressesVO1Iterator" id="CreateInsert1" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="AddressesVO1Iterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+  </bindings>
+</pageDefinition>

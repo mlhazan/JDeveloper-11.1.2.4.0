@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="11.1.2.64.36"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="AddressesVO1"
+    ViewObjectName="model.viewObject.AddressesVO"/>
+  <ViewUsage
+    Name="CountryVO1"
+    ViewObjectName="model.viewObject.CountryVO"/>
+  <ViewUsage
+    Name="StateVO1"
+    ViewObjectName="model.viewObject.StateVO"/>
+  <ViewUsage
+    Name="CityVO1"
+    ViewObjectName="model.viewObject.CityVO"/>
+</AppModule>
