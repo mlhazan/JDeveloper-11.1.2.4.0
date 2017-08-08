@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="11.1.2.64.36"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="ColorsLOV1"
+    ViewObjectName="model.ColorsLOV"/>
+  <ViewUsage
+    Name="EmployeesView1"
+    ViewObjectName="model.EmployeesView"/>
+  <ViewUsage
+    Name="EmployeesView2"
+    ViewObjectName="model.EmployeesView"/>
+  <ViewLinkUsage
+    Name="EmpManagerFkLink"
+    ViewLinkObjectName="model.EmpManagerFkLink"
+    SrcViewUsageName="model.AppModule.EmployeesView1"
+    DstViewUsageName="model.AppModule.EmployeesView2"
+    Reversed="false"/>
+</AppModule>
