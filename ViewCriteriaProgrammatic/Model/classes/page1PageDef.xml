@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="page1PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variableUsage DataControl="AppModuleDataControl" Binds="x" Name="setDeptVC_x" IsQueriable="false"/>
+      <variableUsage DataControl="AppModuleDataControl" Binds="x" Name="setJobVC_x" IsQueriable="false"/>
+    </variableIterator>
+    <iterator Binds="EmployeesVO1" RangeSize="25" DataControl="AppModuleDataControl" id="EmployeesVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="EmployeesVO1Iterator" id="EmployeesVO1">
+      <nodeDefinition DefName="viewObjects.EmployeesVO" Name="EmployeesVO10">
+        <AttrNames>
+          <Item Value="EmployeeId"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="Email"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="HireDate"/>
+          <Item Value="JobId"/>
+          <Item Value="Salary"/>
+          <Item Value="CommissionPct"/>
+          <Item Value="ManagerId"/>
+          <Item Value="DepartmentId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="setDeptVC" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setDeptVC"
+                  IsViewObjectMethod="true" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.EmployeesVO1">
+      <NamedData NDName="x" NDType="oracle.jbo.domain.Number" NDValue="${bindings.setDeptVC_x}"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="x">
+      <AttrNames>
+        <Item Value="setDeptVC_x"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="setJobVC" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setJobVC"
+                  IsViewObjectMethod="true" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.EmployeesVO1">
+      <NamedData NDName="x" NDType="java.lang.String" NDValue="${bindings.setJobVC_x}"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="x1">
+      <AttrNames>
+        <Item Value="setJobVC_x"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="dept60VP" RequiresUpdateModel="true" Action="invokeMethod" MethodName="dept60VP"
+                  IsViewObjectMethod="true" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.EmployeesVO1"/>
+    <methodAction id="clearJobVC" RequiresUpdateModel="true" Action="invokeMethod" MethodName="clearJobVC"
+                  IsViewObjectMethod="true" DataControl="AppModuleDataControl"
+                  InstanceName="data.AppModuleDataControl.EmployeesVO1"/>
+  </bindings>
+</pageDefinition>
