@@ -67,14 +67,17 @@ public class EmployeesVOImpl extends ViewObjectImpl implements EmployeesVO {
     
     public void clearJobVC(){
         removeApplyViewCriteriaName("InJobViewCriteria");
+        removeApplyViewCriteriaName("InDeptViewCriteria");
         executeQuery();
     }
     public void dept60VP(){
         ViewCriteria vcd = getViewCriteria("InDeptViewCriteria");
-        ViewCriteria vcj = getViewCriteria("InJobViewCriteria");
+        //ViewCriteria vcj = getViewCriteria("InJobViewCriteria");
+        vcd.resetCriteria();
+        //vcj.resetCriteria();
         setDeptIdBind(new Number(60));
-        setJobIdBind("AD_VP");
-        applyViewCriteria(vcj);
+       // setJobIdBind("AD_VP");
+        //applyViewCriteria(vcj);
         applyViewCriteria(vcd,true);
         executeQuery();
     }
