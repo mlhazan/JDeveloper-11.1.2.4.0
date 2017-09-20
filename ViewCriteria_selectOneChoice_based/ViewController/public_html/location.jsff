@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelFormLayout id="pfl1">
+  
+  <af:selectOneChoice value="#{bindings.IdLOV.inputValue}" label="#{bindings.IdLOV.label}"
+                        required="#{bindings.IdLOV.hints.mandatory}" shortDesc="#{bindings.IdLOV.hints.tooltip}"
+                        id="soc1" autoSubmit="true"
+                      valueChangeListener="#{backingBeanScope.locationBackingBean.changeLocation}"
+                      partialTriggers="soc1">
+      <f:selectItems value="#{bindings.IdLOV.items}" id="si1"/>
+    </af:selectOneChoice>
+    <af:inputText value="#{bindings.Name.inputValue}" label="#{bindings.Name.hints.label}"
+                  required="#{bindings.Name.hints.mandatory}" columns="#{bindings.Name.hints.displayWidth}"
+                  maximumLength="#{bindings.Name.hints.precision}" shortDesc="#{bindings.Name.hints.tooltip}" id="it1"
+                  partialTriggers="soc1">
+      <f:validator binding="#{bindings.Name.validator}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.Id.inputValue}" label="#{bindings.Id.hints.label}"
+                  required="#{bindings.Id.hints.mandatory}" columns="#{bindings.Id.hints.displayWidth}"
+                  maximumLength="#{bindings.Id.hints.precision}" shortDesc="#{bindings.Id.hints.tooltip}" id="it2"
+                  partialTriggers="soc1">
+      <f:validator binding="#{bindings.Id.validator}"/>
+      <af:convertNumber groupingUsed="false" pattern="#{bindings.Id.format}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.Location.inputValue}" label="#{bindings.Location.hints.label}"
+                  required="#{bindings.Location.hints.mandatory}" columns="#{bindings.Location.hints.displayWidth}"
+                  maximumLength="#{bindings.Location.hints.precision}" shortDesc="#{bindings.Location.hints.tooltip}"
+                  id="it3" partialTriggers="soc1">
+      <f:validator binding="#{bindings.Location.validator}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.Test.inputValue}" label="#{bindings.Test.hints.label}"
+                  required="#{bindings.Test.hints.mandatory}" columns="#{bindings.Test.hints.displayWidth}"
+                  maximumLength="#{bindings.Test.hints.precision}" shortDesc="#{bindings.Test.hints.tooltip}" id="it4"
+                  partialTriggers="soc1">
+      <f:validator binding="#{bindings.Test.validator}"/>
+    </af:inputText>
+    
+  </af:panelFormLayout>
+</ui:composition>
