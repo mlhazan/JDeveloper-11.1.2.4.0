@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmCorporateProfilesEO"
+  Version="11.1.2.64.36"
+  DBObjectType="table"
+  DBObjectName="EM_CORPORATE_PROFILES"
+  AliasName="EmCorporateProfilesEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <Attribute
+    Name="CorproId"
+    IsNotNull="true"
+    Precision="10"
+    Scale="0"
+    ColumnName="CORPRO_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="EM_CORPORATE_PROFILES"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Code"
+    IsNotNull="true"
+    Precision="12"
+    ColumnName="CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EM_CORPORATE_PROFILES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Name"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EM_CORPORATE_PROFILES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreateDate"
+    IsNotNull="true"
+    ColumnName="CREATE_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="DATE"
+    TableName="EM_CORPORATE_PROFILES"/>
+  <Attribute
+    Name="ActiveFlag"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="ACTIVE_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EM_CORPORATE_PROFILES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Address1"
+    Precision="50"
+    ColumnName="ADDRESS_1"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EM_CORPORATE_PROFILES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="City"
+    Precision="20"
+    ColumnName="CITY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EM_CORPORATE_PROFILES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ProstaProstaId"
+    Precision="10"
+    Scale="0"
+    ColumnName="PROSTA_PROSTA_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="EM_CORPORATE_PROFILES"/>
+  <Attribute
+    Name="PostalCode"
+    Precision="10"
+    ColumnName="POSTAL_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EM_CORPORATE_PROFILES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Phone1"
+    Precision="16"
+    ColumnName="PHONE_1"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EM_CORPORATE_PROFILES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Fax"
+    Precision="16"
+    ColumnName="FAX"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EM_CORPORATE_PROFILES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Email"
+    Precision="50"
+    ColumnName="EMAIL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EM_CORPORATE_PROFILES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CouCode"
+    IsNotNull="true"
+    Precision="8"
+    ColumnName="COU_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EM_CORPORATE_PROFILES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="8"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CurCurId"
+    IsNotNull="true"
+    Precision="10"
+    Scale="0"
+    ColumnName="CUR_CUR_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="EM_CORPORATE_PROFILES"/>
+  <Attribute
+    Name="CorporateImageFile"
+    IsQueriable="false"
+    ColumnName="CORPORATE_IMAGE_FILE"
+    SQLType="BLOB"
+    Type="oracle.jbo.domain.BlobDomain"
+    ColumnType="BLOB"
+    TableName="EM_CORPORATE_PROFILES"/>
+  <Attribute
+    Name="TimeZone"
+    IsNotNull="true"
+    Precision="64"
+    ColumnName="TIME_ZONE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EM_CORPORATE_PROFILES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="64"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="AdCorporateLocationsEO"
+    Association="model.CorlocCorproFkAssoc"
+    AssociationEnd="model.CorlocCorproFkAssoc.AdCorporateLocationsEO"
+    AssociationOtherEnd="model.CorlocCorproFkAssoc.EmCorporateProfilesEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="CorproPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="CORPRO_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EmCorporateProfilesEO.CorproId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="CorproCouFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="COUNTRY_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CORPRO_COU_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EmCorporateProfilesEO.CouCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="CorproCurFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CUR_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CORPRO_CUR_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EmCorporateProfilesEO.CurCurId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="CorproProstaFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PROSTA_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CORPRO_PROSTA_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EmCorporateProfilesEO.ProstaProstaId"/>
+    </AttrArray>
+  </Key>
+</Entity>

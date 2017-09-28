@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="locationPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="LocationLOV1" RangeSize="25" DataControl="AppModuleDataControl" id="LocationLOV1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="LocationLOV1Iterator" id="Name">
+      <AttrNames>
+        <Item Value="Name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LocationLOV1Iterator" id="Id">
+      <AttrNames>
+        <Item Value="Id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LocationLOV1Iterator" id="Location">
+      <AttrNames>
+        <Item Value="Location"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LocationLOV1Iterator" id="Test">
+      <AttrNames>
+        <Item Value="Test"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="LocationLOV1Iterator" StaticList="false" Uses="LOV_IdLOV" id="IdLOV" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

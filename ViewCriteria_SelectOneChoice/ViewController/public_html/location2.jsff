@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelBox text="PanelBox1" id="pb1">
+    <f:facet name="toolbar"/>
+    <af:panelFormLayout id="pfl1">
+      <af:selectOneChoice value="#{bindings.Name1.inputValue}" label="#{bindings.Name1.label}"
+                          required="#{bindings.Name1.hints.mandatory}" shortDesc="#{bindings.Name1.hints.tooltip}"
+                          id="soc1">
+        <f:selectItems value="#{bindings.Name1.items}" id="si1"/>
+      </af:selectOneChoice>
+      <af:commandButton text="Search" id="cb1" actionListener="#{backingBeanScope.MyBean.getNameList}"/>
+    </af:panelFormLayout>
+    <af:panelFormLayout id="pfl2">
+      <af:inputText value="#{bindings.Name.inputValue}" label="#{bindings.Name.hints.label}"
+                    required="#{bindings.Name.hints.mandatory}" columns="#{bindings.Name.hints.displayWidth}"
+                    maximumLength="#{bindings.Name.hints.precision}" shortDesc="#{bindings.Name.hints.tooltip}"
+                    id="it1">
+        <f:validator binding="#{bindings.Name.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.Id.inputValue}" label="#{bindings.Id.hints.label}"
+                    required="#{bindings.Id.hints.mandatory}" columns="#{bindings.Id.hints.displayWidth}"
+                    maximumLength="#{bindings.Id.hints.precision}" shortDesc="#{bindings.Id.hints.tooltip}" id="it2">
+        <f:validator binding="#{bindings.Id.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.Id.format}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.Location.inputValue}" label="#{bindings.Location.hints.label}"
+                    required="#{bindings.Location.hints.mandatory}" columns="#{bindings.Location.hints.displayWidth}"
+                    maximumLength="#{bindings.Location.hints.precision}" shortDesc="#{bindings.Location.hints.tooltip}"
+                    id="it3">
+        <f:validator binding="#{bindings.Location.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.Address1.inputValue}" label="#{bindings.Address1.hints.label}"
+                    required="#{bindings.Address1.hints.mandatory}" columns="#{bindings.Address1.hints.displayWidth}"
+                    maximumLength="#{bindings.Address1.hints.precision}" shortDesc="#{bindings.Address1.hints.tooltip}"
+                    id="it4">
+        <f:validator binding="#{bindings.Address1.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.City.inputValue}" label="#{bindings.City.hints.label}"
+                    required="#{bindings.City.hints.mandatory}" columns="#{bindings.City.hints.displayWidth}"
+                    maximumLength="#{bindings.City.hints.precision}" shortDesc="#{bindings.City.hints.tooltip}"
+                    id="it5">
+        <f:validator binding="#{bindings.City.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.PostalCode.inputValue}" label="#{bindings.PostalCode.hints.label}"
+                    required="#{bindings.PostalCode.hints.mandatory}"
+                    columns="#{bindings.PostalCode.hints.displayWidth}"
+                    maximumLength="#{bindings.PostalCode.hints.precision}"
+                    shortDesc="#{bindings.PostalCode.hints.tooltip}" id="it6">
+        <f:validator binding="#{bindings.PostalCode.validator}"/>
+      </af:inputText>
+    </af:panelFormLayout>
+  </af:panelBox>
+</ui:composition>
