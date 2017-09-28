@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="location2PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="LocationLOV1" RangeSize="25" DataControl="AppModuleDataControl" id="LocationLOV1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="LocationLOV1Iterator" id="Name">
+      <AttrNames>
+        <Item Value="Name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LocationLOV1Iterator" id="Id">
+      <AttrNames>
+        <Item Value="Id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LocationLOV1Iterator" id="Location">
+      <AttrNames>
+        <Item Value="Location"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LocationLOV1Iterator" id="Address1">
+      <AttrNames>
+        <Item Value="Address1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LocationLOV1Iterator" id="City">
+      <AttrNames>
+        <Item Value="City"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="LocationLOV1Iterator" id="PostalCode">
+      <AttrNames>
+        <Item Value="PostalCode"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="applyFindByName" InstanceName="data.AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="applyFindByName" IsViewObjectMethod="false">
+      <NamedData NDName="n" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

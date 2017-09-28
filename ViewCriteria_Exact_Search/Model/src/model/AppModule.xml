@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="11.1.2.64.36"
+  ClearCacheOnRollback="true"
+  ComponentClass="model.AppModuleImpl"
+  ComponentInterface="model.common.AppModule"
+  ClientProxyName="model.client.AppModuleClient">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="AdCorporateLocationsVO1"
+    ViewObjectName="model.AdCorporateLocationsVO"/>
+  <ViewUsage
+    Name="EmCorporateProfilesVO1"
+    ViewObjectName="model.EmCorporateProfilesVO"/>
+  <ViewUsage
+    Name="AdCorporateLocationsVO2"
+    ViewObjectName="model.AdCorporateLocationsVO"/>
+  <ViewUsage
+    Name="LocationLOV1"
+    ViewObjectName="model.LocationLOV">
+    <ViewCriteriaUsage
+      Name="LocationLOVCriteria"
+      FullName="model.LocationLOV.LocationLOVCriteria"/>
+  </ViewUsage>
+  <ViewLinkUsage
+    Name="CorlocCorproFkLink1"
+    ViewLinkObjectName="model.CorlocCorproFkLink"
+    SrcViewUsageName="model.AppModule.EmCorporateProfilesVO1"
+    DstViewUsageName="model.AppModule.AdCorporateLocationsVO2"
+    Reversed="false"/>
+  <ClientInterface>
+    <Method
+      Name="applyFindByName"
+      MethodName="applyFindByName">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="n"
+        Type="java.lang.String"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

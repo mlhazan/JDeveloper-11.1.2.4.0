@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow-definition">
+    <default-activity>location2</default-activity>
+    <managed-bean id="__3">
+      <managed-bean-name>MyBean</managed-bean-name>
+      <managed-bean-class>bean.MyBean</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="location2">
+      <page>/location2.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
