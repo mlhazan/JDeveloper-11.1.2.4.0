@@ -26,7 +26,7 @@ public class MyBean {
         OperationBinding ob = bc.getOperationBinding("applyFindByName");
         JUCtrlListBinding lst = (JUCtrlListBinding)bc.get("Name1");
         ViewRowImpl r = (ViewRowImpl)lst.getSelectedValue();
-        String na = (String)r.getAttribute("Name1");
+        String na = (String)r.getAttribute("Name");
         Map m = ob.getParamsMap();
         m.put("n",na);
         ob.execute();

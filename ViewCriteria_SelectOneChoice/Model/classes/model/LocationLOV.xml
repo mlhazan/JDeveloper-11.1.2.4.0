@@ -84,7 +84,6 @@ FROM ad_corporate_locations CL WHERE CL.corpro_corpro_id =1
 order by test]]></SQLQuery>
   <ViewAttribute
     Name="Name"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="255"
