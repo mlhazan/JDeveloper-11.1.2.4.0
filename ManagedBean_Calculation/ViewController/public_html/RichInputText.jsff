@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1">
+    <af:decorativeBox id="db1">
+      <f:facet name="center">
+        <af:panelGroupLayout layout="scroll" id="pgl2">
+          <af:inputText label="Label 1" id="it1" binding="#{richBean.itx}"/>
+          <af:inputText label="Label 2" id="it2" binding="#{richBean.ity}"/>
+          <af:separator id="s1"/>
+          <af:inputText label="Label 3" id="it3" binding="#{richBean.itz}"/>
+          <af:commandButton text="Calculate" id="cb1" actionListener="#{richBean.calculateNumbers}"/>
+        </af:panelGroupLayout>
+      </f:facet>
+      <f:facet name="top">
+        <af:outputText value="Calculator RichInputText" id="ot1" inlineStyle="font-size:large;"/>
+      </f:facet>
+    </af:decorativeBox>
+  </af:panelGroupLayout>
+</ui:composition>
