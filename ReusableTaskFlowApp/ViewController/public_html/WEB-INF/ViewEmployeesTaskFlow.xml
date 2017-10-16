@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ViewEmployeesTaskFlow">
+    <default-activity id="__1">ViewEmployees</default-activity>
+    <view id="ViewEmployees">
+      <page>/ViewEmployees.jspx</page>
+    </view>
+    <task-flow-call id="EditEmployeesTaskFlow">
+      <task-flow-reference>
+        <document>/WEB-INF/EditEmployeesTaskFlow.xml</document>
+        <id>EditEmployeesTaskFlow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">ViewEmployees</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome id="__6">goEditEmployeesTaskFlow</from-outcome>
+        <to-activity-id id="__5">EditEmployeesTaskFlow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

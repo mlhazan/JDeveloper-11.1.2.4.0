@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="EditEmployeesTaskFlow">
+    <default-activity id="__8">Router</default-activity>
+    <transaction id="__7">
+      <new-transaction/>
+    </transaction>
+    <router id="Router">
+      <case>
+        <expression>#{requestScope.actionSelected == 'edit'}</expression>
+        <outcome id="__32">goEditEmployees</outcome>
+      </case>
+      <default-outcome>goCreateInsertEmployees</default-outcome>
+    </router>
+    <view id="EditEmployees">
+      <page>/EditEmployees.jspx</page>
+    </view>
+    <task-flow-return id="Rollback">
+      <outcome id="__9">
+        <name>Rollback</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="Commit">
+      <outcome id="__10">
+        <name>Commit</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <method-call id="CreateInsertEmployees">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome id="__33">
+        <fixed-outcome>goEditEmployees</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__11">
+      <from-activity-id id="__12">Router</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome id="__27">goCreateInsertEmployees</from-outcome>
+        <to-activity-id id="__14">CreateInsertEmployees</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__16">
+        <from-outcome id="__28">goEditEmployees</from-outcome>
+        <to-activity-id id="__15">EditEmployees</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id id="__18">CreateInsertEmployees</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome id="__29">goEditEmployees</from-outcome>
+        <to-activity-id id="__19">EditEmployees</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__21">
+      <from-activity-id id="__22">EditEmployees</from-activity-id>
+      <control-flow-case id="__23">
+        <from-outcome id="__31">goCommit</from-outcome>
+        <to-activity-id id="__24">Commit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__25">
+        <from-outcome id="__30">goRollback</from-outcome>
+        <to-activity-id id="__26">Rollback</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

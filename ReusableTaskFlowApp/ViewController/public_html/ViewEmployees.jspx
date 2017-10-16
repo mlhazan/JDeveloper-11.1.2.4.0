@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:table value="#{bindings.EmployeesView11.collectionModel}" var="row"
+                  rows="#{bindings.EmployeesView11.rangeSize}"
+                  emptyText="#{bindings.EmployeesView11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  fetchSize="#{bindings.EmployeesView11.rangeSize}"
+                  rowBandingInterval="0"
+                  selectedRowKeys="#{bindings.EmployeesView11.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.EmployeesView11.collectionModel.makeCurrent}"
+                  rowSelection="single" id="t1">
+          <af:column sortProperty="#{bindings.EmployeesView11.hints.EmployeeId.name}"
+                     sortable="false"
+                     headerText="#{bindings.EmployeesView11.hints.EmployeeId.label}"
+                     id="c11">
+            <af:outputText value="#{row.EmployeeId}" id="ot2">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.EmployeesView11.hints.EmployeeId.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.EmployeesView11.hints.FirstName.name}"
+                     sortable="false"
+                     headerText="#{bindings.EmployeesView11.hints.FirstName.label}"
+                     id="c9">
+            <af:outputText value="#{row.FirstName}" id="ot6"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.EmployeesView11.hints.LastName.name}"
+                     sortable="false"
+                     headerText="#{bindings.EmployeesView11.hints.LastName.label}"
+                     id="c10">
+            <af:outputText value="#{row.LastName}" id="ot4"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.EmployeesView11.hints.Email.name}"
+                     sortable="false"
+                     headerText="#{bindings.EmployeesView11.hints.Email.label}"
+                     id="c8">
+            <af:outputText value="#{row.Email}" id="ot5"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.EmployeesView11.hints.PhoneNumber.name}"
+                     sortable="false"
+                     headerText="#{bindings.EmployeesView11.hints.PhoneNumber.label}"
+                     id="c6">
+            <af:outputText value="#{row.PhoneNumber}" id="ot3"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.EmployeesView11.hints.HireDate.name}"
+                     sortable="false"
+                     headerText="#{bindings.EmployeesView11.hints.HireDate.label}"
+                     id="c7">
+            <af:outputText value="#{row.HireDate}" id="ot7">
+              <af:convertDateTime pattern="#{bindings.EmployeesView11.hints.HireDate.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.EmployeesView11.hints.JobId.name}"
+                     sortable="false"
+                     headerText="#{bindings.EmployeesView11.hints.JobId.label}"
+                     id="c5">
+            <af:outputText value="#{row.JobId}" id="ot1"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.EmployeesView11.hints.Salary.name}"
+                     sortable="false"
+                     headerText="#{bindings.EmployeesView11.hints.Salary.label}"
+                     id="c3">
+            <af:outputText value="#{row.Salary}" id="ot11">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.EmployeesView11.hints.Salary.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.EmployeesView11.hints.CommissionPct.name}"
+                     sortable="false"
+                     headerText="#{bindings.EmployeesView11.hints.CommissionPct.label}"
+                     id="c2">
+            <af:outputText value="#{row.CommissionPct}" id="ot10">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.EmployeesView11.hints.CommissionPct.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.EmployeesView11.hints.ManagerId.name}"
+                     sortable="false"
+                     headerText="#{bindings.EmployeesView11.hints.ManagerId.label}"
+                     id="c4">
+            <af:outputText value="#{row.ManagerId}" id="ot9">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.EmployeesView11.hints.ManagerId.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.EmployeesView11.hints.DepartmentId.name}"
+                     sortable="false"
+                     headerText="#{bindings.EmployeesView11.hints.DepartmentId.label}"
+                     id="c1">
+            <af:outputText value="#{row.DepartmentId}" id="ot8">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.EmployeesView11.hints.DepartmentId.format}"/>
+            </af:outputText>
+          </af:column>
+        </af:table>
+        <af:commandButton text="New" id="cbNew"
+                          action="goEditEmployeesTaskFlow">
+          <af:setActionListener from="#{'new'}"
+                                to="#{requestScope.actionSelected}"/>
+        </af:commandButton>
+        <af:commandButton text="Edit" id="cbEdit"
+                          action="goEditEmployeesTaskFlow">
+          <af:setActionListener from="#{'edit'}"
+                                to="#{requestScope.actionSelected}"/>
+        </af:commandButton>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>
