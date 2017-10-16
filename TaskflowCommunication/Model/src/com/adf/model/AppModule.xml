@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="11.1.2.64.36"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="EmployeesView1"
+    ViewObjectName="com.adf.model.EmployeesView"/>
+  <ViewUsage
+    Name="EmployeesView2"
+    ViewObjectName="com.adf.model.EmployeesView"/>
+  <ViewLinkUsage
+    Name="EmpManagerFkLink1"
+    ViewLinkObjectName="com.adf.model.EmpManagerFkLink"
+    SrcViewUsageName="com.adf.model.AppModule.EmployeesView1"
+    DstViewUsageName="com.adf.model.AppModule.EmployeesView2"
+    Reversed="false"/>
+</AppModule>

@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <TaskFlowCall
+      id="TaskFlowCall2">
+      <property
+         name="taskFlowId">EditEmployeeTaskFlow</property>
+      <property
+         name="activityId">EditEmployeeTaskFlow</property>
+      <property
+         name="documentReference">/WEB-INF/EditEmployeeTaskFlow.xml</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>EditEmployeeTaskFlow&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">379.74707</property>
+      <property
+         name="x">663.68945</property>
+   </TaskFlowCall>
+   <View
+      id="View3">
+      <property
+         name="activityId">ViewEmployees</property>
+      <property
+         name="page">/ViewEmployees.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ViewEmployees&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">376.59766</property>
+      <property
+         name="x">247.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View3"
+      to="TaskFlowCall2">
+      <property
+         name="fromOutcome">goEditEmployeeTaskFlow</property>
+      <property
+         name="sdm:polyPoints">R50,288.0,376.24707,622.68945,379.39648,L50</property>
+   </ControlFlowCase>
+</SDM>

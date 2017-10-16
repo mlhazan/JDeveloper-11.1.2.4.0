@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.2.64.36" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.adf.view" ClientType="Generic">
+  <pageMap>
+    <page path="/WEB-INF/EditEmployeeTaskFlow.xml#EditEmployeeTaskFlow@setEmployeeId"
+          usageId="com_adf_view_EditEmployeeTaskFlow_EditEmployeeTaskFlow_setEmployeeIdPageDef"/>
+    <page path="/EditEmployee.jsf" usageId="com_adf_view_EditEmployeePageDef"/>
+    <page path="/ViewEmployees.jsf" usageId="com_adf_view_ViewEmployeesPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_adf_view_EditEmployeeTaskFlow_EditEmployeeTaskFlow_setEmployeeIdPageDef"
+          path="com.adf.view.pageDefs.EditEmployeeTaskFlow_EditEmployeeTaskFlow_setEmployeeIdPageDef"/>
+    <page id="com_adf_view_EditEmployeePageDef" path="com.adf.view.pageDefs.EditEmployeePageDef"/>
+    <page id="com_adf_view_ViewEmployeesPageDef" path="com.adf.view.pageDefs.ViewEmployeesPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="com.adf.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

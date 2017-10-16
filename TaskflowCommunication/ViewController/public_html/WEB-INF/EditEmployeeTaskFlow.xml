@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="EditEmployeeTaskFlow">
+    <default-activity>setEmployeeId</default-activity>
+    <input-parameter-definition id="__5">
+      <name>employeeSelected</name>
+      <value>#{pageFlowScope.employeeSelected}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <method-call id="setEmployeeId">
+      <method>#{bindings.setCurrentRowWithKey.execute}</method>
+      <outcome>
+        <fixed-outcome>goEditEmployee</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="EditEmployee">
+      <page>/EditEmployee.jsf</page>
+    </view>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome>
+        <name>taskFlowReturn1</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__1">
+      <from-activity-id>setEmployeeId</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>goEditEmployee</from-outcome>
+        <to-activity-id>EditEmployee</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>EditEmployee</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>goTaskFlowReturn</from-outcome>
+        <to-activity-id>taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>
